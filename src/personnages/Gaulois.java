@@ -29,7 +29,12 @@ public class Gaulois {
 
 	public void frapper(Romain romain) {
 		System.out.println(nom + " Envoie un grand coup dans la machoire de " + romain.getNom());
-		romain.recevoirCoup(force / 3);
+		romain.recevoirCoup(effetPotion * force / 3);
+		if (force > 1 ) {
+			effetPotion -= 1;
+		}else {
+			effetPotion = 1; //sécurité au cas ou la force est négative ou nul (Pas impossible car aucune précondition pour le moment)
+		}
 	}
 
 	public void boirePotion(int forcePotion) {
