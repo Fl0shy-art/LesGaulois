@@ -3,7 +3,7 @@ package personnages;
 public class Druide {
 	private String nom;
 	private int force;
-	Chaudron chaudron = new Chaudron(0, 0);
+	Chaudron chaudron = new Chaudron();
 
 	public Druide(String nom, int force) {
 		this.nom = nom;
@@ -32,10 +32,10 @@ public class Druide {
 		if (!chaudron.resterPotion()) {
 			if (gaulois.getNom() != null && gaulois.getNom().equals("Obélix")) {
 				parler("Non, Obélix Non ! Et tu le sais très bien");
-			}else {
-			int forcePotion = chaudron.prendreLouche();
-			gaulois.boirePotion(forcePotion);
-			parler("Tiens " + gaulois.getNom() + " un peu de potion magique.");
+			} else {
+				int forcePotion = chaudron.prendreLouche();
+				gaulois.boirePotion(forcePotion);
+				parler("Tiens " + gaulois.getNom() + " un peu de potion magique.");
 			}
 
 		} else {
