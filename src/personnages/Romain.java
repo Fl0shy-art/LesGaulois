@@ -58,6 +58,43 @@ public class Romain {
 		}
 		return equipementEjecte;
 	}
+
+private int CalculResistanceEquipement(int forceCoup) {
+	texte = "Ma force est de " + this.force + ", et la force du coup est de" + forceCoup;
+	int resistanceEquipement = 0;
+	if (!(nbEquipement == 0)) {
+		texte += "\nMais heureusement, grace à mon équipement sa force est diminué de ";
+		for (int i = 0; i < nbEquipement;) {
+			if ((equipements[i] != null && equipements[i].equals(Equipement.BOUCLIER)) == true) {
+				resistanceEquipement += 8;
+			} else {
+				System.out.println("Equipement casque");
+				resistanceEquipement += 5;
+			}
+			i++;
+		}
+		texte =+ resistanceEquipement + "!";
+	}
+	parler(texte);
+	forceCoup -= resistanceEquipement;
+	return forceCoup;
+}
+private Equipement[] ejecterEquipement() {
+	Equipement[] equipementEjecte = new Equipement[nbEquipement];
+	System.out.println("L'équipement de " + nom.toString() + " s'envole sous la force du coup.");
+	//TODO
+	int nbEquipementEjecte = 0;
+	for (int i = 0; i < nbEquipement; i++) {
+		if (equipements[i] == null) {
+		continue;
+		} else {
+		equipementEjecte[nbEquipementEjecte] = equipements[i];
+		nbEquipementEjecte++;
+		equipements[i] = null;
+		}
+	}
+	return equipementEjecte;
+}
 	/*public void recevoirCoup(int forceCoup) {
 		this.force = this.force - forceCoup;
 		if (force < 1) {
