@@ -117,5 +117,7 @@ private Equipement[] ejecterEquipement() {
 
 	public static void main(){
 		Romain minus = Romain("Minus",6);
+		
+		minus.sEquiper();
 	}
 }
