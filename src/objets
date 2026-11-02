@@ -1,6 +1,6 @@
 public enum Equipement{
-  CASQUE,
-  BOUCLIER
+  CASQUE("Casque");
+  BOUCLIER("Bouclier");
   private String nom;
 
   Equipement(String nom){
