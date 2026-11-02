@@ -1,4 +1,5 @@
 package personnages;
+import objets;
 
 public class Romain {
 	private String nom;
