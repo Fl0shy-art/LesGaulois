@@ -61,8 +61,8 @@ public class Romain {
 			parler("J'abandonne...");
 			break;
 		}
+		isInvarientVerified();
 		return equipementEjecte;
-		isInvarient();
 	}
 	
 
@@ -104,12 +104,17 @@ private Equipement[] ejecterEquipement() {
 	return equipementEjecte;
 }
 	/*public void recevoirCoup(int forceCoup) {
+		isInvarientVerified();
 		this.force = this.force - forceCoup;
 		if (force < 1) {
 			this.parler("j'abandonne");
 		} else {
 			this.parler("Aie");
 		}
-		isInvarient();
+		
 	}*/
+
+	public static void main(){
+		Romain minus = Romain("Minus",6);
+	}
 }
