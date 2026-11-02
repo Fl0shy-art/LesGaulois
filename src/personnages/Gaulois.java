@@ -4,7 +4,9 @@ import village_gaulois.Village;
 
 public class Gaulois {
 	private String nom;
-	private int force;
+	//private int force;
+	private int force, nb_trophees;
+	private Equipement trophees[] = new Equipement[100];
 	private int effetPotion = 1;
 	private Village village; // Ajouté pour la relation avec le Village (0,1)
 
