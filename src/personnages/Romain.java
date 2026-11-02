@@ -118,7 +118,11 @@ private Equipement[] ejecterEquipement() {
 
 	public static void main(){
 		Romain minus = Romain("Minus",6);
-		
-		minus.sEquiper();
+		Equipement casque = new Equipement("CASQUE");
+		Equipement bouclier = new Equipement("BOUCLIER");
+		minus.sEquiper(casque);
+		minus.sEquiper(casque);
+		minus.sEquiper(bouclier);
+		minus.sEquiper(casque);
 	}
 }
