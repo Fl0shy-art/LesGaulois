@@ -6,11 +6,16 @@ public class Romain {
 	private String texte;
 	private Equipement[] equipements;
 	private int nbEquipements = 0;
+
+	private isInvarientVerfified(){
+		return force > O;
+	}
 	
 	public Romain(String nom, int force) {
 		this.nom = nom;
 		this.force = force;
 		this.equipements = new Equipements[2];
+		assert force > 0;
 	}
 
 	public String getNom() {
@@ -57,7 +62,9 @@ public class Romain {
 			break;
 		}
 		return equipementEjecte;
+		assert force > 0;
 	}
+	
 
 private int CalculResistanceEquipement(int forceCoup) {
 	texte = "Ma force est de " + this.force + ", et la force du coup est de" + forceCoup;
@@ -93,6 +100,7 @@ private Equipement[] ejecterEquipement() {
 		equipements[i] = null;
 		}
 	}
+	assert force > 0;
 	return equipementEjecte;
 }
 	/*public void recevoirCoup(int forceCoup) {
@@ -102,5 +110,6 @@ private Equipement[] ejecterEquipement() {
 		} else {
 			this.parler("Aie");
 		}
+		assert force > 0;
 	}*/
 }
