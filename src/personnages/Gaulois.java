@@ -1,6 +1,7 @@
 package personnages;
 
 import village_gaulois.Village;
+import objets;
 
 public class Gaulois {
 	private String nom;
@@ -24,7 +25,8 @@ public class Gaulois {
 	}
 
 	private String prendreParole() {
-		return "Le gaulois " + nom + " : ";
+		String texte = "Le gaulois " + nom + " : ";
+		return texte;
 	}
 
 	@Override
@@ -33,14 +35,16 @@ public class Gaulois {
 	}
 
 	public void frapper(Romain romain) {
-		System.out.println(nom + " Envoie un grand coup dans la machoire de " + romain.getNom());
-		romain.recevoirCoup(effetPotion * force / 3);
-		if (force > 1) {
-			effetPotion--;
-		} else {
-			effetPotion = 1; // sécurité au cas ou la force est négative ou nul (Pas impossible car aucune
-								// précondition pour le moment)
+		System.out.println(nom + " envoie un grand coup dans la mâchoire de "+ romain.getNom());
+		Equipement trophees[] = romain.recevoirCoup((force / 3) * effetPotion);
+		effetPotion--;
+		if (effetPotion < 1) {
+			effetPotion = 1;
 		}
+		for (int i = 0; trophees != null && i < trophees.length; i++, nb_trophees++) {
+			this.trophees[nb_trophees] = trophees[i];
+		}
+		return;
 	}
 
 	public void boirePotion(int forcePotion) {
