@@ -1,0 +1,10 @@
+public enum Equipement{
+  private String nom;
+
+  Equipement(String nom){
+  self.nom = nom;
+  }
+  public String toString(){
+    return nom;
+  }
+}
