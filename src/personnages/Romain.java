@@ -104,14 +104,15 @@ private Equipement[] ejecterEquipement() {
 	return equipementEjecte;
 }
 	/*public void recevoirCoup(int forceCoup) {
-		isInvarientVerified();
+		assert forceCoup > 0; // préconditions
+		int force_avant_coup = this.force;
 		this.force = this.force - forceCoup;
 		if (force < 1) {
 			this.parler("j'abandonne");
 		} else {
 			this.parler("Aie");
 		}
-		
+		assert force_avant_coup > this.force;
 	}*/
 
 	public static void main(){
