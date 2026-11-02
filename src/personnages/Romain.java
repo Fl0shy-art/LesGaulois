@@ -62,7 +62,7 @@ public class Romain {
 			break;
 		}
 		return equipementEjecte;
-		assert force > 0;
+		isInvarient();
 	}
 	
 
@@ -110,6 +110,6 @@ private Equipement[] ejecterEquipement() {
 		} else {
 			this.parler("Aie");
 		}
-		assert force > 0;
+		isInvarient();
 	}*/
 }
