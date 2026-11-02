@@ -4,10 +4,13 @@ public class Romain {
 	private String nom;
 	private int force;
 	private String texte;
-
+	private Equipement[] equipements;
+	private int nbEquipements = 0;
+	
 	public Romain(String nom, int force) {
 		this.nom = nom;
 		this.force = force;
+		this.equipements = new Equipements[2];
 	}
 
 	public String getNom() {
@@ -20,6 +23,22 @@ public class Romain {
 
 	private String prendreParole() {
 		return "Le romain " + nom + " : ";
+	}
+
+	public void sEquiper(Equipement objet){
+		switch(nbEquipements){
+			case 2:
+				System.out.println("Le soldat " + nom +" est déjà bien équipé !");
+				break;
+			case 1:
+				if (equipement[0] == objet){
+					system.out.println("Le soldat " + nom + " possède déjà un " + objet);
+				}
+			default:
+				equipement[nbEquipements] = objet;
+				nbEquipements++;
+				system.out.prinln("Le soldat " + nom + " s'équipe d'un " + objet);
+		}
 	}
 
 	public Equipement[] recevoirCoup(int forceCoup) {
