@@ -1,7 +1,7 @@
 package personnages;
 
 import village_gaulois.Village;
-import objets;
+import objets.Equipement;
 
 public class Gaulois {
 	private String nom;
@@ -24,6 +24,7 @@ public class Gaulois {
 		System.out.println(prendreParole() + "\"" + texte + "\"");
 	}
 
+	
 	private String prendreParole() {
 		String texte = "Le gaulois " + nom + " : ";
 		return texte;
