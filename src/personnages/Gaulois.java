@@ -35,7 +35,11 @@ public class Gaulois {
 		return nom;
 	}
 
-	public void frapper(Romain romain) {
+	public boolean frapper(Romain romain) {
+		if (romain.getForce() == 0) {
+			return false;
+		}
+		int forceAvantCoup = romain.getForce();
 		System.out.println(nom + " envoie un grand coup dans la mâchoire de "+ romain.getNom());
 		Equipement trophees[] = romain.recevoirCoup((force / 3) * effetPotion);
 		effetPotion--;
@@ -46,7 +50,11 @@ public class Gaulois {
 				&& nb_trophees < this.trophees.length; i++, nb_trophees++) {
 			this.trophees[nb_trophees] = trophees[i];
 		}
-		return;
+		if (romain.getForce() == forceAvantCoup) {
+			System.out.println("Le coup ne fait pas perdre de force à " + romain.getNom() + ".");
+			return false;
+		}
+		return romain.getForce() > 0;
 	}
 
 	public void boirePotion(int forcePotion) {

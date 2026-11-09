@@ -38,20 +38,19 @@ public class Romain {
 	}
 
 	public void sEquiper(Equipement objet){
-		switch(nbEquipements){
-			case 2:
-				System.out.println("Le soldat " + nom +" est déjà bien équipé !");
-				break;
-			case 1:
-				if (equipements[0] == objet){
-					System.out.println("Le soldat " + nom + " possède déjà un " + objet);
-					break;
-				}
-			default:
-				equipements[nbEquipements] = objet;
-				nbEquipements++;
-				System.out.println("Le soldat " + nom + " s'équipe d'un " + objet);
+		if (nbEquipements == equipements.length) {
+			System.out.println("Le soldat " + nom + " est déjà bien équipé !");
+			return;
 		}
+		for (int i = 0; i < nbEquipements; i++) {
+			if (equipements[i] == objet) {
+				System.out.println("Le soldat " + nom + " possède déjà un " + objet);
+				return;
+			}
+		}
+		equipements[nbEquipements] = objet;
+		nbEquipements++;
+		System.out.println("Le soldat " + nom + " s'équipe d'un " + objet);
 	}
 
 	public Equipement[] recevoirCoup(int forceCoup) {
