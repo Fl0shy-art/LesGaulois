@@ -42,7 +42,8 @@ public class Gaulois {
 		if (effetPotion < 1) {
 			effetPotion = 1;
 		}
-		for (int i = 0; trophees != null && i < trophees.length; i++, nb_trophees++) {
+		for (int i = 0; trophees != null && i < trophees.length && trophees[i] != null
+				&& nb_trophees < this.trophees.length; i++, nb_trophees++) {
 			this.trophees[nb_trophees] = trophees[i];
 		}
 		return;

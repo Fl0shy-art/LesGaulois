@@ -9,14 +9,15 @@ public class Romain {
 	private Equipement[] equipements;
 	private int nbEquipements = 0;
 
-	private Boolean isInvarientVerfified(){
-		return force > 0;
+	private boolean isInvarientVerfified(){
+		return force >= 0;
 	}
 	
 	public Romain(String nom, int force) {
 		this.nom = nom;
 		this.force = force;
 		this.equipements = new Equipement[2];
+		assert force > 0;
 		assert isInvarientVerfified();
 	}
 
@@ -54,22 +55,18 @@ public class Romain {
 	}
 
 	public Equipement[] recevoirCoup(int forceCoup) {
-		Equipement[] equipementEjecte = null;
-		
 		forceCoup = CalculResistanceEquipement(forceCoup);
 		if (forceCoup > 0) {
-			force -= forceCoup;
+			force = Math.max(0, force - forceCoup);
 		}
-		switch (force) {
-		case 0:
-			parler("Aïe");
-			break;
-		default:
+		Equipement[] equipementEjecte = new Equipement[0];
+		if (force == 0) {
 			equipementEjecte = ejecterEquipement();
 			parler("J'abandonne...");
-			break;
+		} else {
+			parler("Aïe");
 		}
-		isInvarientVerfified();
+		assert isInvarientVerfified();
 		return equipementEjecte;
 	}
 	
